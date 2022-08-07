@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 20:22:17 by gsever            #+#    #+#              #
-#    Updated: 2022/07/27 00:58:14 by gsever           ###   ########.fr        #
+#    Updated: 2022/08/07 20:08:11 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,10 @@ CHECKER		= checker
 #	Flags for compile
 CC			= gcc
 FLAGS		= -Wall -Werror -Wextra
+
+#	All process use for compiling.
+# UNAME	:= $(shell uname -s)
+# NUMPROC	:= 8
 
 #	Libft Part --> OK
 LIBFTDIR	= ./libraries/libft
@@ -101,7 +105,8 @@ LEAKS_CH	= leaks -atExit -- ./checker 9 1 8 2 7 3 6 4 5
 
 .PHONY: all libft clean fclean re leaksps leaksch
 
-all: $(NAME) checker
+all:
+	@$(MAKE) $(NAME) -j$(NUMPROC)
 
 #	Compiling
 $(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c
@@ -123,6 +128,14 @@ ifneq ($(MAKECMDGOALS), $(filter $(MAKECMDGOALS), $(NAME) $(CHECKER)))
 	@make -C $(LIBFTDIR) $(MAKECMDGOALS) --silent
 else
 	@make -C $(LIBFTDIR) --silent
+endif
+
+#	Compiling with all threads.
+ifeq ($(UNAME), Linux)
+	NUMPROC := $(shell grep -c ^processor /proc/cpuinfo)
+else ifeq ($(UNAME), Darwin)
+	NUMPROC := $(shell sysctl -n hw.ncpu)
+	echo "annen"
 endif
 
 clean: libft
