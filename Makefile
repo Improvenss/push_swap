@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 20:22:17 by gsever            #+#    #+#              #
-#    Updated: 2022/08/07 20:08:11 by gsever           ###   ########.fr        #
+#    Updated: 2022/08/07 20:11:37 by gsever           ###   ########.tr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -135,7 +135,6 @@ ifeq ($(UNAME), Linux)
 	NUMPROC := $(shell grep -c ^processor /proc/cpuinfo)
 else ifeq ($(UNAME), Darwin)
 	NUMPROC := $(shell sysctl -n hw.ncpu)
-	echo "annen"
 endif
 
 clean: libft
