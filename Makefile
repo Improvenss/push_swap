@@ -7,8 +7,7 @@
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 20:22:17 by gsever            #+#    #+#              #
 #    Updated: 2022/08/07 20:11:37 by gsever           ###   ########.tr        #
-#                                                                              #
-# **************************************************************************** #
+#                                                                              # # **************************************************************************** #
 
 NAME		= push_swap
 CHECKER		= checker
@@ -113,7 +112,7 @@ $(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c
 	@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 	@printf "%-57b %b" "$(BLUE)COMPILED $(LB)$@" "$(GREEN)[✓]$(X)\n"
 
-$(NAME): libft $(OBJECTS_DIRECTORY) $(OBJECTS)
+$(NAME): libft $(OBJECTS_DIRECTORY) $(OBJECTS) $(CHECKER)
 	@$(CC) $(FLAGS) -o $(NAME) $(OBJECTS) $(LIBRARIES)
 	@printf "%-57b %b" "$(GREEN)CREATED $(NAME)" "$(GREEN)[FINISHED]$(X)\n"
 
