@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 20:22:17 by gsever            #+#    #+#              #
-#    Updated: 2022/08/10 06:57:01 by gsever           ###   ########.fr        #
+#    Updated: 2022/08/20 19:29:29 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,14 +106,14 @@ LEAKS_CH	= leaks -atExit -- ./checker 9 1 8 2 7 3 6 4 5
 .PHONY: all libft clean fclean re leaksps leaksch
 
 all:
-	@$(MAKE) $(NAME) -j$(NUMPROC)
+	@$(MAKE) $(NAME) $(CHECKER) -j$(NUMPROC)
 
 #	Compiling
 $(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c
 	@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 	@printf "%-57b %b" "$(BLUE)COMPILED $(LB)$@" "$(GREEN)[✓]$(X)\n"
 
-$(NAME): libft $(OBJECTS_DIRECTORY) $(OBJECTS) $(CHECKER)
+$(NAME): libft $(OBJECTS_DIRECTORY) $(OBJECTS)
 	@$(CC) $(FLAGS) -o $(NAME) $(OBJECTS) $(LIBRARIES)
 	@printf "%-57b %b" "$(GREEN)CREATED $(NAME)" "$(GREEN)[FINISHED]$(X)\n"
 
