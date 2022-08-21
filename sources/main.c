@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 18:55:29 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/22 00:42:33 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/22 01:38:49 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
  * @author Görkem SEVER (gsever)
  * @bug Clear.
  */
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 /**
  * @brief push_swap starting here.
