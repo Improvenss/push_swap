@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 18:55:29 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/29 00:18:38 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/22 00:42:33 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,29 @@
  * 
  * ARG=$(jot -r -s " " 100 -20000 2000000); ./push_swap $ARG | ./checker $ARG
  * 
+ * arg=(`ruby -e "puts (0..499).to_a.shuffle.join(' ')"`); ./push_swap
+ $arg | ./checker $arg
  * @link https://www.doxygen.nl/manual/commands.html
  * @author Görkem SEVER (gsever)
- * @bug 
+ * @bug Clear.
  */
 #include "../includes/push_swap.h"
 
 /**
- * @brief 
+ * @brief push_swap starting here.
+ * @fn arg_checker() : Checking agrumans are correct.
+ * @fn malloc() : Allocating memory for stack.
+ * @fn stack_fill() : Filling stack from argumans.
+ * @fn stack_fill_double_quotation() : If args are string filling here.
+ * @fn ft_free() : Freeing all memory.
+ * @fn ft_error() : Writing str on terminal.
+ * @fn indexer() : Indexing minimum value to zero(0).
+ * 	Sample -> ./ps 2 8 49 -4 3 9 --> ./ps 1 3 5 0 2 4
+ * 	Minimum value -4 -> doing minimum value to 0.
+ * @fn is_sorted() : Checking stack's all numbers, if sorted finishing.
+ * @fn sort() : Sorting algorithm starting here.
  * @return void
- * @param arg_checker
- * @param malloc
- * @param stack_fill
- * @param stack_fill_double_quotation
- * @param ft_free
- * @param ft_error
- * @param indexer
- * @param is_sorted
+ * @bug Clear.
  */
 void	push_swap(t_base *stack, int argc, char **argv)
 {

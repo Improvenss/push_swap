@@ -6,13 +6,13 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 12:46:39 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/03 04:50:29 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/21 23:39:20y gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /**
  * @file mark.c
- * @author Gorkem SEVER (gsever)
+ * @author Görkem SEVER (gsever)
  * @brief We are indexing number's values start 0 to up.
  * Min, Max, Mid values indexing. 
  * @version 0.1
@@ -26,6 +26,8 @@
 /**
  * @brief Sayilarimiz 0'dan baslayarak kucukten buyuge olacak sekilde degerler
  * veriliyor.
+ * @param size : 
+ * @param base* :
  * @return void
  * @bug Not know bugs.
  */
@@ -45,8 +47,12 @@ void	remark(int size, t_base *base)
 /**
  * @brief 
  * 
+ * @param i* : 
+ * @param index* : 
+ * @param tmp* : 
+ * @param base* : 
  * @return void
- * @bug Not know bugs.
+ * @bug Clear.
  */
 void	markup_norme(int *i, int *index, int *tmp, t_base *base)
 {
@@ -69,9 +75,13 @@ void	markup_norme(int *i, int *index, int *tmp, t_base *base)
 /**
  * @brief Recursive onself
  * This int index --> the max value's + 1 amount.
+ * @param size : base->start.size -> Number count.
+ * @param index : base->start.max + 1 -> Number's max value + 1.
+ * @param prev : base->start.min - 1 -> Number's min value - 1.
+ * @param base* : base -> Main structure.
+ * @fn markup_norme() : 
+ * @fn markup() : Recursive markup function.
  * @return void
- * @param markup_norme ???
- * @param markup Recursive markup function.
  * @bug Not know bugs.
  */
 void	markup(int size, int index, int prev, t_base *base)
@@ -94,15 +104,17 @@ void	markup(int size, int index, int prev, t_base *base)
 }
 
 /**
- * @brief	Indexer = Hafizaya alma demek.
+ * @brief Indexer = Hafizaya alma demek.
  * We are indexing ---> marking --> remarking
- * @return	void
- * @param	is_repeated We are controling repeaded numbers. If found -> "Error"
- * @param	find_min We are assigning min value to base->start.min.
- * @param	find_max We are assigning max value to base->start.max.
- * @param	markup 
- * @param	remark
- * @bug		Not know bugs.
+ * @param size : stack->start.size -> 
+ * @param base* : stack -> Main structure.
+ * @fn is_repeated : We are controling repeaded numbers. If found -> "Error"
+ * @fn find_min : We are assigning min value to base->start.min.
+ * @fn find_max : We are assigning max value to base->start.max.
+ * @fn markup : 
+ * @fn remark :
+ * @return void
+ * @bug Not know bugs.
  */
 void	indexer(int size, t_base *base)
 {

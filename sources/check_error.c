@@ -6,17 +6,27 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 20:09:00 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/27 13:33:29 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/21 23:30:08 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @file check_error.c
+ * @author Görkem SEVER (gsever)
+ * @brief Controling area here.
+ * @version 0.1
+ * @date 2022-08-21
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 #include "../includes/push_swap.h"
 
 /**
- * @brief	Check if a stack's numbers is sorted.
- * @return	void
- * @param	ft_free Free all stacks.
- * @bug		Not know bugs.
+ * @brief Check if a stack's numbers is sorted.
+ * @fn ft_free() : Free all stacks.
+ * @return void
+ * @bug Not know bugs.
  */
 void	is_sorted(t_base *base)
 {
@@ -34,10 +44,11 @@ void	is_sorted(t_base *base)
 }
 
 /**
- * @brief	Check if a stack's numbers is repeated.
- * @return	void
- * @param	ft_error If have problem, writing "Error" and exit program.
- * @bug		Not know bugs.
+ * @brief Check if a stack's numbers is repeated.
+ * @param base* : 
+ * @fn ft_error() : If have problem, writing string and exit program.
+ * @return void
+ * @bug Clear.
  */
 void	is_repeated(t_base *base)
 {
@@ -59,11 +70,11 @@ void	is_repeated(t_base *base)
 }
 
 /**
- * @brief	It's just writing string and start exit(1);
- * @return	1
- * @param ft_putstr_fd Writing string on shell.
- * @param exit Exiting program.
- * @bug		Not know bugs.
+ * @brief It's just writing string and start exit(1);
+ * @fn ft_putstr_fd() :  Writing string on shell.
+ * @fn exit() :  Exiting program.
+ * @return 1
+ * @bug Clear.
  */
 int	ft_error(char *str)
 {
@@ -73,11 +84,13 @@ int	ft_error(char *str)
 }
 
 /**
- * @brief	Just check if there are only numbers.
- * @return	void
- * @param	is_digit Scanning string, all argumans are digit.
- * @param	ft_error If have problem, writing "Error" and exit program.
- * @bug		Not know bugs.
+ * @brief Just check if there are only numbers.
+ * @param ac : 
+ * @param av** : 
+ * @fn ft_error() : If have problem, writing "Error" and exit program.
+ * @fn is_digit() : Scanning string, all argumans are digit.
+ * @return void
+ * @bug Clear.
  */
 void	check_num(int ac, char **av)
 {
@@ -107,14 +120,16 @@ void	check_num(int ac, char **av)
 }
 
 /**
- * @brief	We are checking if the double quotation's output is correct or not.
+ * @brief We are checking if the double quotation's output is correct or not.
  * base->start.size = calc_number_count_in_string();
- * @return	void
- * @param	calc_number_count_in_string Counts numbers seperated by spaces 
+ * @param av* : 
+ * @param base* : 
+ * @fn calc_number_count_in_string() : Counts numbers seperated by spaces 
  * in a string.
- * @param	is_digit_wsm Scanning string, all argumans are digit.
- * @param	ft_error If have problem, writing "Error" and exit program.
- * @bug		Not know bugs.
+ * @fn is_digit_wsm() : Scanning string, all argumans are digit.
+ * @fn ft_error() : If have problem, writing "Error" and exit program.
+ * @return void
+ * @bug Not know bugs.
  */
 void	check_num_double_quotation(char *av, t_base *base)
 {

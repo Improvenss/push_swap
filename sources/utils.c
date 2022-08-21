@@ -6,14 +6,19 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 21:22:15 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/02 19:15:25 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/21 23:29:12 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/** @file	utils.c
- * @brief	Other auxiliary functions.
- * @author	Görkem SEVER (gsever)
- * @bug		Now know bugs.
+/**
+ * @file utils.c
+ * @author Görkem SEVER (gsever)
+ * @brief Other auxiliary functions.
+ * @version 0.1
+ * @date 2022-08-21
+ * 
+ * @copyright Copyright (c) 2022
+ * @bug Now know bugs.
  */
 #include "../includes/push_swap.h"
 
@@ -22,7 +27,9 @@
  * etc: ./push_swap "9 8 -3 2 -7 5"
  * 		--> seperator = ' '
  * 		--> str = "9 8 -3 2 -7 5"
- * @return	Number of counted numbers.
+ * @param str* : 
+ * @param c : 
+ * @return	size_t -> Number of counted numbers.
  * @bug		Not know bugs.
  */
 size_t	calc_number_count_in_string(const char *str, char c)

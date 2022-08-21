@@ -6,23 +6,28 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 00:23:41 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/01 21:00:59 by gsever           ###   ########.tr       */
+/*   Updated: 2022/08/21 23:16:02 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/** @file sorting.c
- * @brief 
- * 
+/**
+ * @file sorting.c
  * @author Görkem SEVER (gsever)
- * @bug Not know bugs.
+ * @brief 
+ * @version 0.1
+ * @date 2022-08-21
+ * 
+ * @copyright Copyright (c) 2022
+ * 
  */
 #include "../includes/push_swap.h"
 
 /**
  * @brief 
+ * @param base* : 
+ * @fn rra() : 
+ * @fn ra() : 
  * @return void
- * @param rra
- * @param ra
  * @bug Not know bugs.
  */
 void	final_sort(t_base *base)
@@ -43,16 +48,17 @@ void	final_sort(t_base *base)
 
 /**
  * @brief Sorting steps and algorithms starting here.
+ * @param base* : 
+ * @fn sort_small() : If your numbers count < 10; running.
+ * @fn keep_me() : 
+ * @fn push_to_b() : Pushing
+ * @fn score_init_max() : 
+ * @fn compute() : 
+ * @fn perform() : 
+ * @fn final_sort() : 
+ * @fn ft_free() : 
  * @return void
- * @param sort_small If your numbers count < 7; running.
- * @param keep_me ??
- * @param push_to_b
- * @param score_init_max
- * @param compute
- * @param perform
- * @param final_sort
- * @param ft_free
- * @bug first while; score_init_max or compute or perform
+ * @bug Clear.
  */
 void	sort(t_base *base)
 {

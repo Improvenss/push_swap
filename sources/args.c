@@ -6,17 +6,20 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 19:49:37 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/27 13:34:30 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/21 23:32:07 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-/**
- * @brief	Fill the stack with arguments. etc: ./push_swap 9 8 -3 2 -7 5
- * @return	void
- * @param	ft_atoi Ascii to integer converting and returning int.
- * @bug		Not know bugs.
+/** OK:
+ * @brief Fill the stack with arguments. etc: ./push_swap 9 8 -3 2 -7 5
+ * @param ac : 
+ * @param av** : 
+ * @param base* : 
+ * @fn ft_atoi() : Ascii to integer converting and returning int.
+ * @return void
+ * @bug Not know bugs.
  */
 void	stack_fill(int ac, char **av, t_base *base)
 {
@@ -45,12 +48,14 @@ void	stack_fill(int ac, char **av, t_base *base)
 	}
 }
 
-/**
- * @brief	Fill the stack with argument's double quotations. --> ("")
+/** OK:
+ * @brief Fill the stack with argument's double quotations. --> ("")
  * etc: ./push_swap "9 8 -3 2 -7 5"
+ * @param av** : 
+ * @param base* : 
+ * @fn ft_atoi() : Ascii to integer converting and returning int.
  * @return	void
- * @param	ft_atoi Ascii to integer converting and returning int.
- * @bug		Not know bugs.
+ * @bug Not know bugs.
  */
 void	stack_fill_double_quotation(char **av, t_base *base)
 {
@@ -77,15 +82,15 @@ void	stack_fill_double_quotation(char **av, t_base *base)
 	}
 }
 
-/** OKK
+/** OK:
  * @brief	Check arguments, is the argument just an integer?
  * Checking if arguman count 2 or +.
  * Numbers count --> base->start.size = argc - 1;
  * Numbers count --> base->start.size = calc_number_count_in_string();
- * @return	void
- * @param	check_num --> ./push_swap 9 8 -3 2 -7 5 -> Looking ("").
- * @param	check_num_double_quotation --> ./push_swap "9 8 -3 2 -7 5"
- * @bug		Not know bugs. It's working perfect.
+ * @fn check_num() : ./push_swap 9 8 -3 2 -7 5 -> Looking ("").
+ * @fn check_num_double_quotation() : ./push_swap "9 8 -3 2 -7 5"
+ * @return void
+ * @bug Clear.
  */
 void	arg_checker(int argc, char **argv, t_base *base)
 {
