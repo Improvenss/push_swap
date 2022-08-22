@@ -24,10 +24,14 @@
 #include "../includes/push_swap.h"
 
 /**
- * @brief Sayilarimiz 0'dan baslayarak kucukten buyuge olacak sekilde degerler
- * veriliyor.
- * @param size : 
- * @param base* :
+ * @brief max_value + 1 cikartiyoruz, 0'dan baslatiyoruz.
+ * 
+ * Sayilarimiz 0'dan baslayarak kucukten buyuge olacak sekilde degerler
+ * 	verildikten sonra burada hepsinden max_value + 1 cikartiliyor ki sayilarimiz
+ * 	0'dan baslayarak siralansin.
+ * 	Yani --> 16 12 10 13 15 14 11 --> 6 2 0 3 5 4 1 olarak siralamis oluyoruz.
+ * @param size : Number's size(count).
+ * @param base* : Main structure.
  * @return void
  * @bug Not know bugs.
  */
@@ -45,10 +49,11 @@ void	remark(int size, t_base *base)
 }
 
 /**
- * @brief 
+ * @brief markup()'a sigmadigi icin buradan devam ediyoruz.
  * 
- * @param i* : 
- * @param index* : 
+ * &i, &index, &tmp, base
+ * @param i* : &i -> Number's size(count).
+ * @param index* : &index -> 
  * @param tmp* : 
  * @param base* : 
  * @return void
@@ -58,6 +63,7 @@ void	markup_norme(int *i, int *index, int *tmp, t_base *base)
 {
 	while (*i >= 0)
 	{
+		// printf("")
 		if (*tmp == 0)
 		{
 			if (base->a[*i] == 0)
@@ -75,30 +81,62 @@ void	markup_norme(int *i, int *index, int *tmp, t_base *base)
 /**
  * @brief Recursive onself
  * This int index --> the max value's + 1 amount.
+ * Sayilarimizi minimum sayisindan itibaren 0'dan baslayarak
+ * 	siraladigi icin burada index > size + base->start.max'ini
+ * 	yani -300 -25 235 1 5 8 0 --> 0 1 6 3 4 5 2 yapiyor.
+ * 
+ * ./push_swap 9 1 -2 3 8 4 0
+	base->start.size(7), base->start.max(9) + 1, base->start.min(-2) - 1
+	indeximiz --> 10
+	9 1 -2 3 8 4 0
+	indeximiz --> 11
+	9 1 10 3 8 4 0
+	indeximiz --> 12
+	9 1 10 3 8 4 11
+	indeximiz --> 13
+	9 12 10 3 8 4 11
+	indeximiz --> 14
+	9 12 10 13 8 4 11
+	indeximiz --> 15
+	9 12 10 13 8 14 11
+	indeximiz --> 16
+	9 12 10 13 15 14 11
+	indeximiz --> 17
+	16 12 10 13 15 14 11
+	index(17), size + base->start.max (16) --- size(7), base->start.max(9)
+ * 
+ * minimum value = max_value + 1;
+ * 
  * @param size : base->start.size -> Number count.
  * @param index : base->start.max + 1 -> Number's max value + 1.
- * @param prev : base->start.min - 1 -> Number's min value - 1.
+ * @param mini : base->start.min - 1 -> Number's min value - 1.
  * @param base* : base -> Main structure.
- * @fn markup_norme() : 
+ * @fn markup_norme() : Sigmadigi icin buradan devam ediyoruz.
  * @fn markup() : Recursive markup function.
  * @return void
  * @bug Not know bugs.
  */
-void	markup(int size, int index, int prev, t_base *base)
+void	markup(int size, int index, int mini, t_base *base)
 {
 	int	i;
 	int	tmp;
 
+	printf("indeximiz --> %d\n", index);
 	if (index > size + base->start.max)
+	{
+		printf("index(%d), size + base->start.max (%d) --- size(%d), base->start.max(%d)\n", index, size + base->start.max, size, base->start.max);
 		return ;
+	}
 	tmp = base->start.max;
 	i = 0;
 	while (i < size)
 	{
-		if (base->a[i] > prev && base->a[i] <= tmp)
+		printf("%d ", base->a[i]);
+		if (base->a[i] > mini && base->a[i] <= tmp)
 			tmp = base->a[i];
 		i++;
 	}
+	printf("\n");
 	markup_norme(&i, &index, &tmp, base);
 	markup(size, ++index, tmp, base);
 }
@@ -111,8 +149,10 @@ void	markup(int size, int index, int prev, t_base *base)
  * @fn is_repeated : We are controling repeaded numbers. If found -> "Error"
  * @fn find_min : We are assigning min value to base->start.min.
  * @fn find_max : We are assigning max value to base->start.max.
- * @fn markup : 
- * @fn remark :
+ * @fn markup : Minimumdan baslayarak uzerine max + 1 deger ekliyoruz.
+ * 	./push_swap 9 1 -2 3 8 4 0 --> 16 12 10 13 15 14 11
+ * @fn remark : Sonra hepsinden max_value + 1 cikariyoruz, boylelikle;
+ * 	16 12 10 13 15 14 11 --> 6 2 0 3 5 4 1 olarak siralamis oluyoruz.
  * @return void
  * @bug Not know bugs.
  */
@@ -121,6 +161,7 @@ void	indexer(int size, t_base *base)
 	is_repeated(base);
 	base->start.min = find_min(size, base);
 	base->start.max = find_max(size, base);
+	printf("base->start.size(%d), base->start.max(%d) + 1, base->start.min(%d) - 1\n", base->start.size, base->start.max, base->start.min);
 	markup(base->start.size, base->start.max + 1, base->start.min - 1, base);
 	remark(size, base);
 	base->max = base->start.size - 1;
