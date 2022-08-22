@@ -6,7 +6,7 @@
 #    By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 20:22:17 by gsever            #+#    #+#              #
-#    Updated: 2022/08/20 19:29:29 by gsever           ###   ########.fr        #
+#    Updated: 2022/08/22 20:44:58 by gsever           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -166,5 +166,5 @@ leaksch:
 # 	@printf "%-57b %b" "$(GREEN)CREATED $(NAME)" "$(GREEN)[FINISHED]$(X)\n"
 
 $(CHECKER): libft $(OBJECTS_CH)
-	$(CC) $(FLAGS) -o $(CHECKER) $(OBJECTS_CH) $(LIBRARIES)
+	@$(CC) $(FLAGS) -o $(CHECKER) $(OBJECTS_CH) $(LIBRARIES)
 	@printf "%-57b %b" "$(GREEN)CREATED $(CHECKER)" "$(GREEN)[FINISHED]$(X)\n"

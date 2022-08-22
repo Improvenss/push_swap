@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 12:46:39 by gsever            #+#    #+#             */
-/*   Updated: 2022/08/21 23:39:20y gsever           ###   ########.fr       */
+/*   Updated: 2022/08/22 21:19:39 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,26 @@ void	remark(int size, t_base *base)
 /**
  * @brief markup()'a sigmadigi icin buradan devam ediyoruz.
  * 
+ * Geriye dogru giderek en kucuk sayiyi bulacak, buldugunda;
+ * 	bu 'min' sayiyi index yani 'max + 1' yapacak.
+ * 
+ * 9 1 -2 3 8 4 -14124 0 16
+ * 
+ * Tersten geliyoruz.	<----- ve buldugumuz en kucuk sayida
+ * max + 1'i atayip cikiyoruz.
+	0 16 0 -14124
+	0 16 0 17 4 8 3 -2
+	0 16 0 17 4 8 3 18 1 9
+	19 16 19 17 4 8 3 18 1
+	19 16 19 17 4 8 3
+	19 16 19 17 4
+	19 16 19 17 22 8
+	19 16 19 17 22 23 21 18 20 9
+ * 
  * &i, &index, &tmp, base
  * @param i* : &i -> Number's size(count).
  * @param index* : &index -> 
- * @param tmp* : 
+ * @param tmp* : &tmp
  * @param base* : 
  * @return void
  * @bug Clear.
@@ -63,7 +79,6 @@ void	markup_norme(int *i, int *index, int *tmp, t_base *base)
 {
 	while (*i >= 0)
 	{
-		// printf("")
 		if (*tmp == 0)
 		{
 			if (base->a[*i] == 0)
@@ -121,22 +136,16 @@ void	markup(int size, int index, int mini, t_base *base)
 	int	i;
 	int	tmp;
 
-	printf("indeximiz --> %d\n", index);
 	if (index > size + base->start.max)
-	{
-		printf("index(%d), size + base->start.max (%d) --- size(%d), base->start.max(%d)\n", index, size + base->start.max, size, base->start.max);
 		return ;
-	}
 	tmp = base->start.max;
 	i = 0;
 	while (i < size)
 	{
-		printf("%d ", base->a[i]);
 		if (base->a[i] > mini && base->a[i] <= tmp)
 			tmp = base->a[i];
 		i++;
 	}
-	printf("\n");
 	markup_norme(&i, &index, &tmp, base);
 	markup(size, ++index, tmp, base);
 }
@@ -161,7 +170,6 @@ void	indexer(int size, t_base *base)
 	is_repeated(base);
 	base->start.min = find_min(size, base);
 	base->start.max = find_max(size, base);
-	printf("base->start.size(%d), base->start.max(%d) + 1, base->start.min(%d) - 1\n", base->start.size, base->start.max, base->start.min);
 	markup(base->start.size, base->start.max + 1, base->start.min - 1, base);
 	remark(size, base);
 	base->max = base->start.size - 1;
