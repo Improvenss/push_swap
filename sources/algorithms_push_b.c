@@ -6,7 +6,7 @@
 /*   By: gsever <gsever@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 19:19:43 by gsever            #+#    #+#             */
-/*   Updated: 2022/07/27 02:03:16 by gsever           ###   ########.fr       */
+/*   Updated: 2022/08/23 17:23:36 by gsever           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "../includes/push_swap.h"
 
 /**
- * @brief If number count > 7 running this func.
+ * @brief 
  * @return void
  * @bug Not know bugs.
  */
